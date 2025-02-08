@@ -23,9 +23,9 @@ pub mod wrapped_payload {
     )]
     #[repr(i32)]
     pub enum Type {
-        /// TODO: Add actual transaction types here
-        StandardTransaction = 0,
-        PartialTransaction = 1,
+        SmallL2Payload = 0,
+        LargeL2Payload = 1,
+        DataFromL2Tx = 2,
     }
     impl Type {
         /// String value of the enum field names used in the ProtoBuf definition.
@@ -34,15 +34,17 @@ pub mod wrapped_payload {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                Self::StandardTransaction => "STANDARD_TRANSACTION",
-                Self::PartialTransaction => "PARTIAL_TRANSACTION",
+                Self::SmallL2Payload => "SMALL_L2_PAYLOAD",
+                Self::LargeL2Payload => "LARGE_L2_PAYLOAD",
+                Self::DataFromL2Tx => "DATA_FROM_L2_TX",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
         pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
             match value {
-                "STANDARD_TRANSACTION" => Some(Self::StandardTransaction),
-                "PARTIAL_TRANSACTION" => Some(Self::PartialTransaction),
+                "SMALL_L2_PAYLOAD" => Some(Self::SmallL2Payload),
+                "LARGE_L2_PAYLOAD" => Some(Self::LargeL2Payload),
+                "DATA_FROM_L2_TX" => Some(Self::DataFromL2Tx),
                 _ => None,
             }
         }

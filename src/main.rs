@@ -5,7 +5,7 @@ use lil_wrap::WrappedPayload;
 use prost::bytes::Bytes;
 use prost::Message;
 
-const PREFIX: [u8;2] = [0xFE, 0xED];
+const PREFIX: [u8;2] = [0x97, 0xB1];
 
 fn serialize_payload(payload: &WrappedPayload) -> Vec<u8>{
     let mut buf = Vec::new();
@@ -27,7 +27,7 @@ fn deserialize_payload(buf: &[u8]) -> Result<WrappedPayload, prost::DecodeError>
 fn main() {
     let wrapped_payload = WrappedPayload{
         version: 0,
-        r#type: Type::StandardTransaction.into(),
+        r#type: Type::SmallL2Payload.into(),
         payload: "hello world".to_string().into_bytes(),
     };
 

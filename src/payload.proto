@@ -4,9 +4,9 @@ package lil_wrap;
 
 message WrappedPayload{
     enum Type{
-        // TODO: Add actual transaction types here
-        STANDARD_TRANSACTION = 0;
-        PARTIAL_TRANSACTION = 1;
+        SMALL_L2_PAYLOAD = 0;
+        LARGE_L2_PAYLOAD = 1;
+        DATA_FROM_L2_TX = 2;
     }
 
     int32 version = 1;
